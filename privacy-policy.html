@@ -3,46 +3,547 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Política de Privacidade — Telos Quest</title>
+  <title>Privacy Policy — Telos Quest</title>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; max-width: 700px; margin: 60px auto; padding: 0 20px; color: #333; line-height: 1.7; }
-    h1 { font-size: 26px; }
-    h2 { font-size: 18px; margin-top: 32px; }
+    :root {
+      --bg: #f5f4f0;
+      --surface: #eceae4;
+      --border: #dedad2;
+      --accent: #4f6ef7;
+      --accent2: #8b5cf6;
+      --text: #1a1a2e;
+      --muted: #7c7a72;
+      --card: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Sora', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 20% -10%, rgba(79,110,247,0.08) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 110%, rgba(139,92,246,0.07) 0%, transparent 60%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      padding: 40px 0 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+
+    .logo-name {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.3px;
+    }
+
+    /* ── Language Toggle ── */
+    .lang-toggle {
+      position: relative;
+      display: flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 4px;
+    }
+
+    .lang-toggle::before {
+      content: '';
+      position: absolute;
+      top: 4px; left: 4px;
+      width: calc(50% - 4px);
+      height: calc(100% - 8px);
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border-radius: 100px;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.35s ease;
+      box-shadow: 0 2px 12px rgba(79,110,247,0.3);
+      z-index: 0;
+    }
+
+    .lang-toggle.en-active::before {
+      transform: translateX(100%);
+      box-shadow: 0 2px 12px rgba(139,92,246,0.3);
+    }
+
+    .lang-btn {
+      position: relative;
+      z-index: 1;
+      padding: 6px 18px;
+      border-radius: 100px;
+      border: none;
+      background: transparent;
+      color: var(--muted);
+      font-family: 'Sora', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      transition: color 0.25s ease;
+      user-select: none;
+    }
+
+    .lang-btn.active { color: #fff; }
+    .lang-btn:not(.active):hover { color: var(--text); }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 64px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(79,110,247,0.08);
+      border: 1px solid rgba(79,110,247,0.2);
+      border-radius: 100px;
+      padding: 5px 14px;
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 24px;
+    }
+
+    .badge::before {
+      content: '';
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    h1 {
+      font-family: 'Crimson Pro', serif;
+      font-size: clamp(38px, 6vw, 56px);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -1px;
+      color: var(--text);
+      margin-bottom: 20px;
+    }
+
+    h1 em {
+      font-style: italic;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-meta {
+      display: flex;
+      gap: 24px;
+      font-size: 13px;
+      color: var(--muted);
+      flex-wrap: wrap;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+    }
+
+    /* ── Sections ── */
+    .sections { padding: 48px 0; }
+
+    .section {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid var(--border);
+      animation: fadeUp 0.4s ease both;
+    }
+
+    .section:last-child { border-bottom: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .section-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding-top: 5px;
+      min-width: 28px;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: -0.3px;
+    }
+
+    .section-body { padding-left: 44px; }
+
+    p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #4b4a45;
+      margin-bottom: 12px;
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+    ul li {
+      font-size: 15px;
+      color: #4b4a45;
+      line-height: 1.6;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    ul li::before {
+      content: '→';
+      color: var(--accent);
+      font-size: 13px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .highlight-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 20px 24px;
+      margin-top: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+
+    .highlight-card .icon { font-size: 28px; flex-shrink: 0; }
+    .highlight-card p { margin: 0; font-size: 14px; }
+    .highlight-card a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .highlight-card a:hover { text-decoration: underline; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 0 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-left { font-size: 13px; color: var(--muted); }
+    .footer-left strong { color: var(--text); font-weight: 600; }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── Language visibility ── */
+    [data-lang] { display: none !important; }
+    .lang-pt [data-lang="pt"] { display: block !important; }
+    .lang-en [data-lang="en"] { display: block !important; }
+    .lang-pt span[data-lang="pt"] { display: flex !important; }
+    .lang-en span[data-lang="en"] { display: flex !important; }
+
+    /* ── Tablet ── */
+    @media (max-width: 640px) {
+      .container { padding: 0 18px; }
+
+      header { padding: 28px 0 0; }
+
+      .hero { padding: 44px 0 36px; }
+
+      h1 { font-size: clamp(30px, 8vw, 42px); letter-spacing: -0.5px; }
+
+      .hero-meta { gap: 10px 20px; }
+
+      .sections { padding: 32px 0; }
+
+      .section {
+        margin-bottom: 28px;
+        padding-bottom: 28px;
+      }
+
+      .section-body { padding-left: 32px; }
+
+      .highlight-card { flex-direction: column; align-items: flex-start; gap: 10px; }
+      .highlight-card .icon { font-size: 22px; }
+
+      footer { padding: 24px 0 40px; }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 420px) {
+      .container { padding: 0 16px; }
+
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 22px 0 0;
+      }
+
+      .logo-name { font-size: 15px; }
+      .logo-icon { width: 30px; height: 30px; font-size: 15px; }
+
+      .lang-btn { padding: 5px 13px; font-size: 12px; }
+
+      .hero { padding: 36px 0 28px; }
+
+      .badge { font-size: 11px; padding: 4px 11px; margin-bottom: 18px; }
+
+      h1 { font-size: 32px; margin-bottom: 16px; }
+
+      .hero-meta { gap: 6px 16px; font-size: 12px; }
+
+      .sections { padding: 24px 0; }
+
+      .section { margin-bottom: 24px; padding-bottom: 24px; }
+
+      .section-header { gap: 10px; margin-bottom: 12px; }
+      .section-num { font-size: 10px; padding-top: 4px; }
+      h2 { font-size: 16px; }
+
+      .section-body { padding-left: 0; }
+
+      p { font-size: 14px; line-height: 1.7; }
+      ul li { font-size: 14px; }
+
+      .highlight-card { padding: 16px; border-radius: 12px; }
+      .highlight-card p { font-size: 13px; word-break: break-word; }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 0 36px;
+        gap: 14px;
+      }
+
+      .contact-link { width: 100%; justify-content: center; padding: 12px 20px; }
+    }
   </style>
 </head>
-<body>
+<body class="lang-pt">
 
-  <h1>Política de Privacidade</h1>
-  <p>Última atualização: março de 2026</p>
+<div class="container">
 
-  <p>Esta Política de Privacidade descreve como o <strong>Telos Quest</strong> coleta, usa e protege as informações dos usuários.</p>
+  <header>
+    <a class="logo" href="#">
+      <div class="logo-icon">⚔️</div>
+      <span class="logo-name">TelosQuest</span>
+    </a>
+    <div class="lang-toggle" id="langToggle">
+      <button class="lang-btn active" id="btnPt">PT</button>
+      <button class="lang-btn" id="btnEn">EN</button>
+    </div>
+  </header>
 
-  <h2>1. Dados Coletados</h2>
-  <p>Coletamos apenas os seguintes dados:</p>
-  <ul>
-    <li>Endereço de e-mail (para criação de conta)</li>
-    <li>Progresso e dados do jogo</li>
-  </ul>
+  <section class="hero">
+    <div class="badge" data-lang="pt">Política de Privacidade</div>
+    <div class="badge" data-lang="en">Privacy Policy</div>
+    <h1 data-lang="pt">Seus dados,<br><em>sua privacidade.</em></h1>
+    <h1 data-lang="en">Your data,<br><em>your privacy.</em></h1>
+    <div class="hero-meta">
+      <span data-lang="pt">📅 Atualizado em março de 2026</span>
+      <span data-lang="en">📅 Updated March 2026</span>
+      <span data-lang="pt">🔒 Criptografia em trânsito</span>
+      <span data-lang="en">🔒 Encrypted in transit</span>
+    </div>
+  </section>
 
-  <h2>2. Como Usamos os Dados</h2>
-  <ul>
-    <li>Autenticação e acesso à conta</li>
-    <li>Salvar progresso do jogo</li>
-    <li>Não vendemos nem compartilhamos dados com terceiros</li>
-  </ul>
+  <div class="sections">
 
-  <h2>3. Armazenamento e Segurança</h2>
-  <p>Os dados são armazenados de forma segura via <strong>Firebase (Google)</strong> e criptografados em trânsito via HTTPS/TLS.</p>
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">01</span>
+        <h2 data-lang="pt">Dados Coletados</h2>
+        <h2 data-lang="en">Data We Collect</h2>
+      </div>
+      <div class="section-body">
+        <p data-lang="pt">Coletamos apenas o mínimo necessário para o funcionamento do app:</p>
+        <p data-lang="en">We only collect the minimum data required to operate the app:</p>
+        <ul>
+          <li data-lang="pt">Endereço de e-mail (para criação e acesso à conta)</li>
+          <li data-lang="en">Email address (for account creation and login)</li>
+          <li data-lang="pt">Progresso e dados de jogo</li>
+          <li data-lang="en">Game progress and in-game data</li>
+        </ul>
+      </div>
+    </div>
 
-  <h2>4. Exclusão de Dados</h2>
-  <p>Você pode solicitar a exclusão de todos os seus dados a qualquer momento através do link:</p>
-  <p><a href="https://telosquest.github.io/telosquest-data-deletion/">Solicitar Exclusão de Dados</a></p>
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">02</span>
+        <h2 data-lang="pt">Como Usamos os Dados</h2>
+        <h2 data-lang="en">How We Use Your Data</h2>
+      </div>
+      <div class="section-body">
+        <ul>
+          <li data-lang="pt">Autenticação e acesso seguro à conta</li>
+          <li data-lang="en">Account authentication and secure access</li>
+          <li data-lang="pt">Salvar e sincronizar o progresso do jogo</li>
+          <li data-lang="en">Saving and syncing game progress</li>
+          <li data-lang="pt">Não vendemos nem compartilhamos seus dados com terceiros</li>
+          <li data-lang="en">We do not sell or share your data with third parties</li>
+        </ul>
+      </div>
+    </div>
 
-  <h2>5. Crianças</h2>
-  <p>Nosso app não é direcionado a crianças menores de 13 anos e não coletamos intencionalmente dados de menores.</p>
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">03</span>
+        <h2 data-lang="pt">Segurança</h2>
+        <h2 data-lang="en">Security</h2>
+      </div>
+      <div class="section-body">
+        <p data-lang="pt">Todos os dados são armazenados via <strong style="color:var(--text)">Firebase (Google)</strong> e protegidos com criptografia HTTPS/TLS em trânsito. Seguimos as melhores práticas de segurança recomendadas pelo Google.</p>
+        <p data-lang="en">All data is stored via <strong style="color:var(--text)">Firebase (Google)</strong> and protected with HTTPS/TLS encryption in transit. We follow Google's recommended security best practices.</p>
+      </div>
+    </div>
 
-  <h2>6. Contato</h2>
-  <p>Em caso de dúvidas: <strong>telosquestapp@gmail.com</strong></p>
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">04</span>
+        <h2 data-lang="pt">Exclusão de Dados</h2>
+        <h2 data-lang="en">Data Deletion</h2>
+      </div>
+      <div class="section-body">
+        <p data-lang="pt">Você pode solicitar a exclusão de todos os seus dados a qualquer momento. Processamos todas as solicitações em até <strong style="color:var(--text)">7 dias úteis</strong>.</p>
+        <p data-lang="en">You can request deletion of all your data at any time. We process all requests within <strong style="color:var(--text)">7 business days</strong>.</p>
+        <div class="highlight-card">
+          <div class="icon">🗑️</div>
+          <div>
+            <p data-lang="pt">Acesse o formulário de exclusão de dados: <a href="https://telosquest.github.io/telosquest-data-deletion/">telosquest.github.io/telosquest-data-deletion</a></p>
+            <p data-lang="en">Access the data deletion form: <a href="https://telosquest.github.io/telosquest-data-deletion/">telosquest.github.io/telosquest-data-deletion</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">05</span>
+        <h2 data-lang="pt">Crianças</h2>
+        <h2 data-lang="en">Children</h2>
+      </div>
+      <div class="section-body">
+        <p data-lang="pt">O TelosQuest não é direcionado a crianças menores de 13 anos. Não coletamos intencionalmente dados de menores de idade.</p>
+        <p data-lang="en">TelosQuest is not directed at children under 13 years of age. We do not knowingly collect data from minors.</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-header">
+        <span class="section-num">06</span>
+        <h2 data-lang="pt">Alterações nesta Política</h2>
+        <h2 data-lang="en">Changes to This Policy</h2>
+      </div>
+      <div class="section-body">
+        <p data-lang="pt">Podemos atualizar esta política periodicamente. Notificaremos os usuários sobre mudanças relevantes através do app ou por e-mail.</p>
+        <p data-lang="en">We may update this policy periodically. We will notify users of significant changes through the app or via email.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="footer-left">
+      <p data-lang="pt"><strong>TelosQuest</strong> · Todos os direitos reservados © 2026</p>
+      <p data-lang="en"><strong>TelosQuest</strong> · All rights reserved © 2026</p>
+    </div>
+    <a class="contact-link" href="mailto:telosquestapp@gmail.com">
+      ✉️ <span data-lang="pt">Contato</span><span data-lang="en">Contact</span>
+    </a>
+  </footer>
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var toggle = document.getElementById('langToggle');
+    var btnPt  = document.getElementById('btnPt');
+    var btnEn  = document.getElementById('btnEn');
+
+    function setLang(lang) {
+      document.body.className = 'lang-' + lang;
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+      btnPt.classList.toggle('active', lang === 'pt');
+      btnEn.classList.toggle('active', lang === 'en');
+      toggle.classList.toggle('en-active', lang === 'en');
+    }
+
+    btnPt.addEventListener('click', function () { setLang('pt'); });
+    btnEn.addEventListener('click', function () { setLang('en'); });
+  });
+</script>
 
 </body>
 </html>
