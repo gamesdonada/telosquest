@@ -1,2 +1,5 @@
-# telosquest-data-deletion
-Data deletion request page for Telos Quest App — hosted via GitHub Pages.
+# Data Deletion Page — SeuApp
+
+Hosted page for data deletion requests, required by Google Play Store.
+
+Live at: https://seuusuario.github.io/seuapp-data-deletion
