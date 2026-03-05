@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitação de Exclusão de Dados — SeuApp</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 600px; margin: 60px auto; padding: 0 20px; color: #333; }
+    h1 { font-size: 24px; }
+    input, textarea { width: 100%; padding: 10px; margin: 8px 0 16px; border: 1px solid #ccc; border-radius: 6px; box-sizing: border-box; }
+    button { background: #d32f2f; color: white; padding: 12px 24px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; }
+    button:hover { background: #b71c1c; }
+    .success { color: green; display: none; margin-top: 16px; }
+  </style>
+</head>
+<body>
+
+  <h1>Solicitar Exclusão de Dados</h1>
+  <p>Preencha o formulário abaixo para solicitar a exclusão de todos os seus dados associados ao <strong>SeuApp</strong>. Processaremos sua solicitação em até <strong>7 dias úteis</strong>.</p>
+
+  <p><strong>Dados que serão excluídos:</strong> conta, progresso, compras e qualquer dado pessoal armazenado.</p>
+
+  <form action="https://formsubmit.co/SEU_EMAIL@gmail.com" method="POST">
+    <input type="hidden" name="_subject" value="Solicitação de Exclusão de Dados">
+    <input type="hidden" name="_captcha" value="false">
+
+    <label>Nome</label>
+    <input type="text" name="nome" placeholder="Seu nome" required />
+
+    <label>E-mail cadastrado no app</label>
+    <input type="email" name="email" placeholder="seu@email.com" required />
+
+    <label>Motivo (opcional)</label>
+    <textarea name="motivo" rows="4" placeholder="Descreva o motivo..."></textarea>
+
+    <button type="submit">Solicitar Exclusão</button>
+  </form>
+
+</body>
+</html>
+```
+
+---
+
+## Como funciona o envio
+
+O formulário usa **[formsubmit.co](https://formsubmit.co)** — gratuito, sem backend necessário. Quando o usuário envia, você recebe um **e-mail** com os dados da solicitação.
+
+Só substitua:
+```
+https://formsubmit.co/SEU_EMAIL@gmail.com
+```
+pelo seu e-mail real.
+
+---
+
+## No Google Play Console
+
+Cole a URL gerada pelo GitHub Pages aqui:
+
+**Play Console → Segurança do app → Exclusão de dados → **
+```
+https://seuusuario.github.io/seuapp-data-deletion
